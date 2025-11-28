@@ -3,6 +3,18 @@ from duckduckgo_search import DDGS
 import smtplib
 from email.mime.text import MIMEText
 
+import os
+from dotenv import load_dotenv
+
+# 1. Get the path to the current file (e.g., inside news_verifier/)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 2. Point to the parent directory (..), where the single .env lives
+root_env_path = os.path.join(current_dir, '..', '.env')
+
+# 3. Load it explicitly
+load_dotenv(root_env_path)
+
 google_model="gemini-2.5-flash-lite"
 
 # ==========================================
@@ -32,8 +44,8 @@ def send_email(recipient: str, subject: str, body: str) -> str:
     """
     Envia email via Gmail.
     """
-    sender_email = "fake.news.detector.f.7ma5@gmail.com"
-    sender_password = "ontq cngc jbri knke"
+    sender_email = os.getenv("GMAIL_USER")
+    sender_password =  os.getenv("GMAIL_APP_PASSWORD")
     
     print(f"\n[📧 SUB-AGENT] Sending email to {recipient}...")
 

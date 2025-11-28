@@ -1,6 +1,18 @@
 from google.adk.agents.llm_agent import Agent
 from google.adk.tools import google_search
 
+import os
+from dotenv import load_dotenv
+
+# 1. Get the path to the current file (e.g., inside news_verifier/)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 2. Point to the parent directory (..), where the single .env lives
+root_env_path = os.path.join(current_dir, '..', '.env')
+
+# 3. Load it explicitly
+load_dotenv(root_env_path)
+
 google_model="gemini-2.5-flash-lite"
 
 # --- 1. The Root Agent (News Verifier) ---
