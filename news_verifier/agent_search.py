@@ -42,12 +42,5 @@ root_agent = Agent(
             Análise: (Máximo 2.000 caracteres)
             Categoria: Categoria da notícia
             Sites consultados: Lista de links
-
-        PASSO 3: ENVIO DE EMAIL (IMPORTANTE)
-        Após apresentar o resultado, PERGUNTE ao usuário se ele deseja receber esse relatório por email.
-        Se o usuário disser "SIM":
-            1. Pergunte o endereço de email dele.
-            2. Use a ferramenta 'send_email' para enviar o relatório COMPLETO (Status, Análise, Links).
-            3. Confirme o envio para o usuário.
     """
 )
